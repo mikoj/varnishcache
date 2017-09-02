@@ -1,0 +1,23 @@
+version: '3'
+services:
+    varnish:
+        image: mikojpl/varnishcache:latest
+        restart: always
+        depends_on: 
+            - nginx
+        ports:
+            - "8080:80"
+        environment:
+            - VARNISH_MALLOC=1g
+        volumes:
+            - ./default.vcl:/etc/varnish/default.vcl:ro
+        networks:
+            - varnish-to-nginx
+    nginx:
+        image: nginx:latest
+        restart: always
+        networks:
+            - varnish-to-nginx
+networks:
+    varnish-to-nginx:
+        driver: bridge
