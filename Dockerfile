@@ -12,7 +12,7 @@ RUN \
     echo 'deb https://packagecloud.io/varnishcache/varnish60/debian/ stretch main' > /etc/apt/sources.list.d/varnishcache_varnish60.list && \
     echo 'deb-src https://packagecloud.io/varnishcache/varnish60/debian/ stretch main' >> /etc/apt/sources.list.d/varnishcache_varnish60.list && \
     apt-get update && \
-    apt-get -y install varnish && \
+    apt-get -y install varnish=6.0.0-1~stretch && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /
