@@ -24,6 +24,7 @@ if [ $VARNISH_LOG -eq 1 ]; then
     /usr/bin/varnishncsa -D -a -F "$VARNISH_LOG_FORMAT" -w /var/log/varnish/access.log 2>&1 &
 fi
 
+echo "Starting varnishd"
 /usr/sbin/varnishd -F -a :80 -T :6082 -f /etc/varnish/default.vcl -s malloc,${VARNISH_MALLOC} 2>&1 &
 
 VARNISHD_PID=$!
