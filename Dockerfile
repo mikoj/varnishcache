@@ -14,7 +14,7 @@ RUN \
     apt-get update
 
 RUN \
-    apt-get -y install varnish=6.0.0-1~stretch && \
+    apt-get -y install varnish=6.0.1-1~stretch && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /
