@@ -7,14 +7,14 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN \
     apt-get update && \
     apt-get -y install apt-transport-https curl gnupg psmisc && \
-    curl -L https://packagecloud.io/varnishcache/varnish60lts/gpgkey | apt-key add - && \
+    curl -L https://packagecloud.io/varnishcache/varnish61/gpgkey | apt-key add - && \
     touch /etc/apt/sources.list.d/varnishcache_varnish60lts.list && \
-    echo 'deb https://packagecloud.io/varnishcache/varnish60lts/debian/ stretch main' > /etc/apt/sources.list.d/varnishcache_varnish60lts.list && \
-    echo 'deb-src https://packagecloud.io/varnishcache/varnish60lts/debian/ stretch main' >> /etc/apt/sources.list.d/varnishcache_varnish60lts.list && \
+    echo 'deb https://packagecloud.io/varnishcache/varnish61/debian/ stretch main' > /etc/apt/sources.list.d/varnishcache_varnish61.list && \
+    echo 'deb-src https://packagecloud.io/varnishcache/varnish61/debian/ stretch main' >> /etc/apt/sources.list.d/varnishcache_varnish61.list && \
     apt-get update
 
 RUN \
-    apt-get -y install varnish=6.0.3-1~stretch && \
+    apt-get -y install varnish=6.1.0-1~stretch && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /
