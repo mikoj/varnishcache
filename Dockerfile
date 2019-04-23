@@ -1,6 +1,6 @@
 FROM debian:stretch
 
-LABEL maintainer "mikoj@mynwt.eu"
+LABEL maintainer="mikoj@mynwt.eu"
 
 ENV DEBIAN_FRONTEND noninteractive
 
